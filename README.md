@@ -1,4 +1,4 @@
-# Melting Face 🫠
+# 🫠 Melting Face
 
 A minimal Python SDK that allows you to load prompts hosted on [meltingface.eu](https://meltingface.eu). The library handles:
 
