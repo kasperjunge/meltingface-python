@@ -1,0 +1,24 @@
+[project]
+name = "meltingface"
+version = "0.1.0"
+description = "Python SDK for meltingface.eu"
+readme = "README.md"
+authors = [
+    { name = "Kasper Junge", email = "" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.32.3",
+]
+
+[project.scripts]
+meltingface = "meltingface:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
