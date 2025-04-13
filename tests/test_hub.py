@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 
 from meltingface.hub import from_hub, parse_repo_id
-from meltingface.prompt import Prompt
+from meltingface import Prompt
 from meltingface.utils import _get_cache_file
 
 def test_parse_repo_id_valid():

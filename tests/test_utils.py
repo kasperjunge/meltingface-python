@@ -4,7 +4,7 @@ from meltingface.utils import (
     load_cached_prompt,
     cache_prompt
 )
-from meltingface.prompt import Prompt
+from meltingface import Prompt
 
 def test__get_cache_file():
     repo_id = "owner/repo"

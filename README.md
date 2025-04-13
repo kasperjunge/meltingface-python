@@ -17,7 +17,7 @@ pip install meltingface
 ### Loading a Public Prompt
 
 ```python
-from meltingface.prompt import Prompt
+from meltingface import Prompt
 
 # Load a prompt from the public hub
 prompt = Prompt.from_hub("owner/repo", version="0.1.0")
@@ -31,7 +31,7 @@ print(prompt.version) # -> "v1"
 Private prompts require authentication with an API key:
 
 ```python
-from meltingface.prompt import Prompt
+from meltingface import Prompt
 
 # Option 1: Pass the API key directly
 prompt = Prompt.from_hub("owner/private-repo", api_key="your-api-key")

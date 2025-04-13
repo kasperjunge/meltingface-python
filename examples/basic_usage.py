@@ -8,7 +8,7 @@ This example demonstrates how to:
 3. Access prompt text and metadata
 """
 
-from meltingface.prompt import Prompt
+from meltingface import Prompt
 
 # Load a prompt from the hub
 # For private prompts, you can use:

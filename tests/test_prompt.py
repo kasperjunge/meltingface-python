@@ -1,5 +1,5 @@
 from unittest.mock import patch
-from meltingface.prompt import Prompt
+from meltingface import Prompt
 
 def test_prompt_init():
     p = Prompt(text="Hello", repo_id="owner/repo", version="v1", metadata={"k": "v"})
