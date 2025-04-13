@@ -19,11 +19,11 @@ pip install meltingface
 ```python
 from meltingface import Prompt
 
-# Load a prompt from the public hub
+# Load a prompt from the meltingface.eu hub
 prompt = Prompt.from_hub("owner/repo", version="0.1.0")
 
-print(prompt.text)   # -> "Hello from my prompt!"
-print(prompt.version) # -> "v1"
+print(prompt.text)   # -> "Summarize this: {{ text }}"
+print(prompt.version) # -> "0.1.0"
 ```
 
 ### Loading a Private Prompt
