@@ -8,9 +8,11 @@ from .utils import (
     cache_prompt
 )
 
-MELTINGFACE_API_BASE = "https://meltingface.eu/api"
+# Update to the deployed API URL
+MELTINGFACE_API_BASE = "https://api.meltingface.eu/api/v1"
+MELTINGFACE_API_KEY_ENV = "MELTINGFACE_API_KEY"
 
-def from_hub(repo_id, version=None, cache_dir=None, force_download=False):
+def from_hub(repo_id, version=None, cache_dir=None, force_download=False, api_key=None):
     """
     Internal function called by Prompt.from_hub().
     """
@@ -28,10 +30,19 @@ def from_hub(repo_id, version=None, cache_dir=None, force_download=False):
     if version:
         params["version"] = version
 
-    response = requests.get(url, params=params)
+    # Use API key from param or environment variable for private prompts
+    headers = {}
+    if api_key:
+        headers["X-MeltingFace-API-Key"] = api_key
+    elif os.environ.get(MELTINGFACE_API_KEY_ENV):
+        headers["X-MeltingFace-API-Key"] = os.environ[MELTINGFACE_API_KEY_ENV]
+
+    response = requests.get(url, params=params, headers=headers)
     # 3) Basic error handling
     if response.status_code == 404:
         raise ValueError(f"Prompt not found for repo_id={repo_id}, version={version}")
+    elif response.status_code == 401 or response.status_code == 403:
+        raise ValueError(f"Authentication error: This may be a private prompt that requires an API key.")
     response.raise_for_status()
 
     data = response.json()

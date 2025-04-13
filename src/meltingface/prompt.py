@@ -15,7 +15,7 @@ class Prompt:
         self.metadata = metadata or {}
 
     @classmethod
-    def from_hub(cls, repo_id: str, version: str = None, cache_dir: str = None, force_download: bool = False):
+    def from_hub(cls, repo_id: str, version: str = None, cache_dir: str = None, force_download: bool = False, api_key: str = None):
         """
         Create a Prompt by fetching from MeltingFace hub.
 
@@ -24,6 +24,8 @@ class Prompt:
             version (str): The version of the prompt. Defaults to None (which means 'latest').
             cache_dir (str): Optional path to store (and retrieve) cached prompts.
             force_download (bool): If True, re-download even if a cached version is found.
+            api_key (str): Optional API key for accessing private prompts. If not provided,
+                           will check for MELTINGFACE_API_KEY environment variable.
 
         Returns:
             Prompt: The loaded prompt instance.
@@ -33,5 +35,6 @@ class Prompt:
             repo_id=repo_id,
             version=version,
             cache_dir=cache_dir,
-            force_download=force_download
+            force_download=force_download,
+            api_key=api_key
         )
