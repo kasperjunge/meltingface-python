@@ -41,6 +41,15 @@ prompt = Prompt.from_hub("owner/private-repo", api_key="your-api-key")
 prompt = Prompt.from_hub("owner/private-repo")
 ```
 
+> **Coming Soon:** API key support for accessing private prompts will be available on meltingface.eu as a paid feature. This will allow you to create, manage, and use private prompts programmatically in your applications.
+>
+> **Premium Subscription Benefits:**
+> - Generate API keys to access your private prompts programmatically
+> - Use version-controlled prompts in programmatically
+> - Manage team access to shared prompts
+>
+> Stay tuned for our official launch with multiple subscription tiers for individuals and teams.
+
 ## API Reference
 
 - **`repo_id`** (`"owner/repo"`) is how you reference your prompt's repository on meltingface.eu
